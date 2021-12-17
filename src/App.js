@@ -6,9 +6,19 @@ import AddUser from "./components/Users/AddUser";
 function App() {
   let [users, setUsers] = useState([]);
 
+  const addUserHandler = (name, age) => {
+    setUsers((prev) => [
+      {
+        name: name,
+        age: age
+      },
+      ...prev
+    ]);
+  };
+
   return (
     <div>
-      <AddUser setUsers={setUsers} />
+      <AddUser onAddUser={addUserHandler} />
       <UserList users={users} />
       {/* <Modal title="Modal" message="This is a modal!" buttonText="Okay" /> */}
     </div>

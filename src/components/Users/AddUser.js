@@ -2,12 +2,10 @@ import { useState } from "react";
 import Card from "../UI/Card";
 import Button from "../UI/Button";
 import classes from "./AddUser.module.css";
-import UserList from "./UserList";
 
 const AddUser = (props) => {
   const [enteredUsername, setEnteredUsername] = useState("");
   const [enteredAge, setEnteredAge] = useState();
-  // const [formInputsValid, setFormInputsValid] = useState();
 
   const addUserHandler = (event) => {
     event.preventDefault();
@@ -16,28 +14,14 @@ const AddUser = (props) => {
     } else if (enteredAge < 1) {
       return;
     }
-    props.setUsers((prev) => [
-      {
-        name: enteredUsername,
-        age: enteredAge
-      },
-      ...prev
-    ]);
+    props.onAddUser(enteredUsername, enteredAge);
     setEnteredUsername("");
     setEnteredAge("");
-    console.log(enteredUsername, enteredAge);
   };
-
-  // const checkFormInputs = () => {
-  //   enteredAge.trim().length === 0 || enteredUsername.trim().length === 0
-  //     ? setFormInputsValid(false)
-  //     : setFormInputsValid(true);
-  // };
 
   const inputChangeHandler = (event) => {
     event.target.id === "username" && setEnteredUsername(event.target.value);
     event.target.id === "age" && setEnteredAge(event.target.value);
-    // checkFormInputs();
   };
 
   return (

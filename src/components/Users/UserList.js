@@ -1,15 +1,15 @@
 import Card from "../UI/Card";
 import classes from "./UserList.module.css";
 const UserList = (props) => {
-  if (props.userList.length === 0) {
+  if (props.users.length === 0) {
     return null;
   }
   return (
     <Card className={classes.lists}>
       <ul>
-        {props.userList.map((list) => (
-          <li className={classes.list} key={list.username}>
-            {list.username} ({list.age} years old)
+        {props.users.map((user) => (
+          <li className={classes.list} key={user.name}>
+            {user.name} ({user.age} years old)
           </li>
         ))}
       </ul>

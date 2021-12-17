@@ -10,7 +10,8 @@ function App() {
     setUsers((prev) => [
       {
         name: name,
-        age: age
+        age: age,
+        id: Math.random().toString()
       },
       ...prev
     ]);

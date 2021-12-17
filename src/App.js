@@ -7,7 +7,7 @@ function App() {
   const [users, setUsers] = useState([]);
   const [errorState, setErrorState] = useState({
     error: false,
-    type: ""
+    message: ""
   });
 
   const addUserHandler = (name, age) => {
@@ -21,13 +21,31 @@ function App() {
     ]);
   };
 
+  const displayModalHandler = (error, message) => {
+    setErrorState({
+      error: error,
+      message: message
+    });
+  };
+
+  const removeModalHandler = () => {
+    setErrorState({
+      error: false
+    });
+  };
+
   return (
     <div>
-      <AddUser onAddUser={addUserHandler} />
+      <AddUser onError={displayModalHandler} onAddUser={addUserHandler} />
       <UserList users={users} />
-      {/* {errorState.error && (
-        <Modal title="Modal" message="This is a modal!" buttonText="Okay" />
-      )} */}
+      {errorState.error && (
+        <Modal
+          title="Invalid Input"
+          message={errorState.message}
+          buttonText="Okay"
+          onClose={removeModalHandler}
+        />
+      )}
     </div>
   );
 }

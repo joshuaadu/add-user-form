@@ -14,11 +14,23 @@
 .modalCard {
   width: 50%;
   max-width: 40rem;
-  padding: 1rem;
+  padding: 0 0 1rem;
+
   display: flex;
   flex-direction: column;
 }
 
+.modalCard h2 {
+  background-color: #741188;
+  color: white;
+  margin: 0;
+  padding: 1rem;
+  overflow: hidden;
+}
+.modalCard p,
+.modalCard button {
+  margin: 1rem;
+}
 .modalCard button {
   align-self: flex-end;
 }

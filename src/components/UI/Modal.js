@@ -7,7 +7,7 @@ const Modal = (props) => {
       <Card className={classes.modalCard}>
         <h2>{props.title}</h2>
         <p>{props.message}</p>
-        <Button>{props.buttonText}</Button>
+        <Button onClick={props.onClose}>{props.buttonText}</Button>
       </Card>
     </div>
   );

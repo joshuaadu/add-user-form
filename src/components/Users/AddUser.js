@@ -7,7 +7,7 @@ import UserList from "./UserList";
 const AddUser = (props) => {
   const [enteredUsername, setEnteredUsername] = useState("");
   const [enteredAge, setEnteredAge] = useState();
-  const [formInputsValid, setFormInputsValid] = useState();
+  // const [formInputsValid, setFormInputsValid] = useState();
   let [userlist, setUserList] = useState([]);
 
   const addUserHandler = (event) => {
@@ -62,9 +62,8 @@ const AddUser = (props) => {
           <Button type="submit">Add User</Button>
         </form>
       </Card>
-      <Card>
-        <UserList userList={userlist} />
-      </Card>
+
+      <UserList userList={userlist} />
     </div>
   );
 };

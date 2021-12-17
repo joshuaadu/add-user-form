@@ -1,5 +1,5 @@
 import AddUser from "./components/Users/AddUser";
-import Modal from "./components/UI/Modal";
+// import Modal from "./components/UI/Modal";
 
 function App() {
   return (

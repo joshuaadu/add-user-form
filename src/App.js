@@ -1,10 +1,14 @@
 import { useState } from "react";
 import UserList from "./components/Users/UserList";
 import AddUser from "./components/Users/AddUser";
-// import Modal from "./components/UI/Modal";
+import Modal from "./components/UI/Modal";
 
 function App() {
-  let [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [errorState, setErrorState] = useState({
+    error: false,
+    type: ""
+  });
 
   const addUserHandler = (name, age) => {
     setUsers((prev) => [
@@ -21,7 +25,9 @@ function App() {
     <div>
       <AddUser onAddUser={addUserHandler} />
       <UserList users={users} />
-      {/* <Modal title="Modal" message="This is a modal!" buttonText="Okay" /> */}
+      {/* {errorState.error && (
+        <Modal title="Modal" message="This is a modal!" buttonText="Okay" />
+      )} */}
     </div>
   );
 }

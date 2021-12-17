@@ -8,7 +8,6 @@ const AddUser = (props) => {
   const [enteredUsername, setEnteredUsername] = useState("");
   const [enteredAge, setEnteredAge] = useState();
   // const [formInputsValid, setFormInputsValid] = useState();
-  let [users, setUsers] = useState([]);
 
   const addUserHandler = (event) => {
     event.preventDefault();
@@ -17,7 +16,7 @@ const AddUser = (props) => {
     } else if (enteredAge < 1) {
       return;
     }
-    setUsers((prev) => [
+    props.setUsers((prev) => [
       {
         name: enteredUsername,
         age: enteredAge
@@ -62,8 +61,6 @@ const AddUser = (props) => {
           <Button type="submit">Add User</Button>
         </form>
       </Card>
-
-      <UserList users={users} />
     </div>
   );
 };

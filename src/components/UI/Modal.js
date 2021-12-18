@@ -4,10 +4,17 @@ import Card from "./Card";
 const Modal = (props) => {
   return (
     <div className={classes.modal}>
+      <div className={classes.backdrop} onClick={props.onClose}></div>
       <Card className={classes.modalCard}>
-        <h2>{props.title}</h2>
-        <p>{props.message}</p>
-        <Button onClick={props.onClose}>{props.buttonText}</Button>
+        <header className={classes.header}>
+          <h2>{props.title}</h2>
+        </header>
+        <div className={classes.content}>
+          <p>{props.message}</p>
+        </div>
+        <footer className={classes.actions}>
+          <Button onClick={props.onClose}>{props.buttonText}</Button>
+        </footer>
       </Card>
     </div>
   );

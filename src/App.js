@@ -6,8 +6,7 @@ import ErrorModal from "./components/UI/ErrorModal";
 function App() {
   const [users, setUsers] = useState([]);
   const [errorState, setErrorState] = useState({
-    error: false,
-    message: ""
+    error: false
   });
 
   const addUserHandler = (name, age) => {
@@ -21,9 +20,10 @@ function App() {
     ]);
   };
 
-  const displayModalHandler = (error, message) => {
+  const displayModalHandler = (error, title, message) => {
     setErrorState({
       error: error,
+      title: title,
       message: message
     });
   };
@@ -40,7 +40,7 @@ function App() {
       <UserList users={users} />
       {errorState.error && (
         <ErrorModal
-          title="Invalid Input"
+          title={errorState.title}
           message={errorState.message}
           buttonText="Okay"
           onClose={removeModalHandler}

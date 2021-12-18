@@ -1,7 +1,7 @@
 import { useState } from "react";
 import UserList from "./components/Users/UserList";
 import AddUser from "./components/Users/AddUser";
-import Modal from "./components/UI/Modal";
+import ErrorModal from "./components/UI/ErrorModal";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -39,7 +39,7 @@ function App() {
       <AddUser onError={displayModalHandler} onAddUser={addUserHandler} />
       <UserList users={users} />
       {errorState.error && (
-        <Modal
+        <ErrorModal
           title="Invalid Input"
           message={errorState.message}
           buttonText="Okay"

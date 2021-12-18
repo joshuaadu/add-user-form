@@ -1,7 +1,7 @@
-import classes from "./Modal.module.css";
+import classes from "./ErrorModal.module.css";
 import Button from "./Button";
 import Card from "./Card";
-const Modal = (props) => {
+const ErrorModal = (props) => {
   return (
     <div className={classes.modal}>
       <div className={classes.backdrop} onClick={props.onClose}></div>
@@ -20,4 +20,4 @@ const Modal = (props) => {
   );
 };
 
-export default Modal;
+export default ErrorModal;

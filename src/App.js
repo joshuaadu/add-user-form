@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
+import ReactDom from "react-dom";
 import UserList from "./components/Users/UserList";
 import AddUser from "./components/Users/AddUser";
 import ErrorModal from "./components/UI/ErrorModal";
@@ -35,18 +36,20 @@ function App() {
   };
 
   return (
-    <div>
+    <Fragment>
       <AddUser onError={displayModalHandler} onAddUser={addUserHandler} />
       <UserList users={users} />
-      {errorState.error && (
-        <ErrorModal
-          title={errorState.title}
-          message={errorState.message}
-          buttonText="Okay"
-          onClose={removeModalHandler}
-        />
-      )}
-    </div>
+      {errorState.error &&
+        ReactDom.createPortal(
+          <ErrorModal
+            title={errorState.title}
+            message={errorState.message}
+            buttonText="Okay"
+            onClose={removeModalHandler}
+          />,
+          document.getElementById("modal")
+        )}
+    </Fragment>
   );
 }
 

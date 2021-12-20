@@ -1,6 +1,7 @@
 import classes from "./ErrorModal.module.css";
 import Button from "./Button";
 import Card from "./Card";
+
 const ErrorModal = (props) => {
   return (
     <div className={classes.modal}>
